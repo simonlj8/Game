@@ -4,7 +4,7 @@ import java.awt.*;
  * @author Simon
  *
  */
-public class Grafik extends JPanel {
+public class Game extends JPanel {
 	
 	/**
 	 * 
@@ -19,6 +19,8 @@ public class Grafik extends JPanel {
 	
 	private int moveX = 1;
 	private int moveY = 1;
+	
+	Color ballColor = new Color(0, 0, 204);
 	
 	private void moveBall() {
 		if(x + moveX <= 0)
@@ -38,7 +40,7 @@ public class Grafik extends JPanel {
 
 	public static void main(String[] args) {		
 		JFrame frame = new JFrame();
-		Grafik grafik = new Grafik();
+		Game grafik = new Game();
 		
 		frame.setSize(700, 800); // x, y
 		frame.setLocation(900, 300);
@@ -66,6 +68,7 @@ public class Grafik extends JPanel {
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g2d.setColor(ballColor);
 		g2d.fillOval(x, y, d, d);
 		/*g.setColor(Color.black);
 		g.fillRect(0, 0, 800, 900);
