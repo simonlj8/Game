@@ -1,14 +1,43 @@
 import javax.swing.*;
+
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 /**
  * @author Simon
  *
  */
 public class Game extends JPanel {
 	Ball ball = new Ball(this);
+	Racket racket = new Racket(this);
+	
+	public Game() {
+		addKeyListener(new KeyListener() {
+			
+			
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				racket.KeyReleased(e);
+			}
+			
+			
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				racket.keyPressed(e);
+			}
+		});
+		setFocusable(true);
+	}
 	
 	private void move() {
 		ball.moveBall();
+		racket.move();
 	}
 	/**
 	 * 
@@ -51,6 +80,7 @@ public class Game extends JPanel {
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
 		ball.paint(g2d);
+		racket.paint(g2d);
 		
 	}
 }
