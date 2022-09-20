@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Ball {
 	
-	private int d = 50; //diameter
+	private static final int D = 50; //diameter
 	private int x = 0;
 	private int y = 0;
 	
@@ -18,12 +18,16 @@ public class Ball {
 	 void moveBall() {
 		if(x + moveX <= 0)
 			moveX = 1;
-		if(x + moveX > game.getWidth() -d )
+		if(x + moveX > game.getWidth() -D )
 			moveX = -1;
 		if(y + moveY < 0)
 			moveY = 1;
-		if(y + moveY > game.getHeight() -d )
-			moveY = -1;
+		if(y + moveY > game.getHeight() -D )
+			game.gameOver();
+			//moveY = -1;
+		if(collision()) {
+			moveY = -2;
+		}
 		x += moveX;
 		y += moveY;
 	}
@@ -32,9 +36,17 @@ public class Ball {
 
 	public void paint(Graphics2D g) {
 		
-		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		//g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(ballColor);
-		g.fillOval(x, y, d, d);
+		g.fillOval(x, y, D, D);
 		
+	}
+	
+	private Rectangle getBounds() {
+		return new Rectangle(x, y, D, D);
+	}
+	
+	private boolean collision() {
+		return game.racket.getBounds().intersects(getBounds());
 	}
 }

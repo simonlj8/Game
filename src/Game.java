@@ -60,6 +60,7 @@ public class Game extends JPanel {
 		frame.setResizable(false);
 		frame.setVisible(true);
 		
+		
 		while(true) {
 			game.move();
 			game.repaint();
@@ -82,5 +83,10 @@ public class Game extends JPanel {
 		ball.paint(g2d);
 		racket.paint(g2d);
 		
+	}
+	
+	public void gameOver() {
+		JOptionPane.showMessageDialog(this, "Game over!", "Game over", JOptionPane.YES_NO_OPTION);;
+		System.exit(ABORT);
 	}
 }

@@ -4,10 +4,10 @@ import java.awt.event.KeyEvent;
 
 public class Racket {
 	
-	private int width = 70;
-	private int height = 10;
+	private static final int WIDTH = 80;
+	private static final int HEIGHT = 10;
 	private int x = 350;
-	private int y = 745;
+	private static final int Y = 745;
 	private int moveX = 0;
 	
 	private Game game;
@@ -18,7 +18,7 @@ public class Racket {
 	
 	public void paint(Graphics2D g) {
 		g.setColor(Color.red);
-		g.fillRect(x, y, width, height);
+		g.fillRect(x, Y, WIDTH, HEIGHT);
 	}
 	
 	void move() {
@@ -34,8 +34,14 @@ public class Racket {
 		
 	}
 
-	public void KeyReleased(KeyEvent e) {
-		
+	public void KeyReleased(KeyEvent e) {		
 		moveX = 0;
+	}
+	
+	public Rectangle getBounds() {
+		return new Rectangle(x, Y, WIDTH, HEIGHT);
+	}
+	public int getY() {
+		return Y;
 	}
 }
