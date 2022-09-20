@@ -25,9 +25,9 @@ public class Grafik extends JPanel {
 			moveX = 1;
 		if(x + moveX > getWidth() -d )
 			moveX = -1;
-		if(y + moveY < getHeight())
+		if(y + moveY < 0)
 			moveY = 1;
-		if(y + moveY > 800)
+		if(y + moveY > getHeight() -d )
 			moveY = -1;
 		x += moveX;
 		y += moveY;
@@ -40,7 +40,7 @@ public class Grafik extends JPanel {
 		JFrame frame = new JFrame();
 		Grafik grafik = new Grafik();
 		
-		frame.setSize(800, 900); // x, y
+		frame.setSize(700, 800); // x, y
 		frame.setLocation(900, 300);
 		frame.setDefaultCloseOperation(3);
 		frame.add(grafik);
