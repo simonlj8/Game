@@ -17,9 +17,20 @@ public class Grafik extends JPanel {
 	private int x = 0;
 	private int y = 0;
 	
+	private int moveX = 1;
+	private int moveY = 1;
+	
 	private void moveBall() {
-		x += 1;
-		y += 1;
+		if(x + moveX <= 0)
+			moveX = 1;
+		if(x + moveX > getWidth() -d )
+			moveX = -1;
+		if(y + moveY < getHeight())
+			moveY = 1;
+		if(y + moveY > 800)
+			moveY = -1;
+		x += moveX;
+		y += moveY;
 	}
 	
 	private static final long serialVersionUID = 1L;
@@ -29,7 +40,7 @@ public class Grafik extends JPanel {
 		JFrame frame = new JFrame();
 		Grafik grafik = new Grafik();
 		
-		frame.setSize(900, 900); // x, y
+		frame.setSize(800, 900); // x, y
 		frame.setLocation(900, 300);
 		frame.setDefaultCloseOperation(3);
 		frame.add(grafik);
@@ -41,7 +52,7 @@ public class Grafik extends JPanel {
 			grafik.moveBall();
 			grafik.repaint();
 			try {
-				Thread.sleep(10);
+				Thread.sleep(5);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -54,6 +65,7 @@ public class Grafik extends JPanel {
 	public void paint(Graphics g) {
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2d.fillOval(x, y, d, d);
 		/*g.setColor(Color.black);
 		g.fillRect(0, 0, 800, 900);
