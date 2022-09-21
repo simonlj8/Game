@@ -4,9 +4,12 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
 /**
  * @author Simon
- *
+ * TODO: Make menu so player can choose speed of the ball.
+ * 		 Add a Higscore	
  */
 public class Game extends JPanel {
 	Ball ball = new Ball(this);
@@ -18,22 +21,20 @@ public class Game extends JPanel {
 			String keyString = "";
 			
 			public void keyTyped(KeyEvent e) {
-				// Not used
-				
-			}
-			
+				// Not used				
+			}			
 			
 			public void keyReleased(KeyEvent e) {
 				// TODO Auto-generated method stub
 				racket.KeyReleased(e);
-			}
-			
+			}			
 			
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
 				racket.keyPressed(e);
 			}
-		});
+		}
+	);
 		setFocusable(true);
 	}
 	
@@ -73,16 +74,13 @@ public class Game extends JPanel {
 			game.move();
 			game.repaint();
 			try {
-				Thread.sleep(7);
+				Thread.sleep(3);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-	}
-		
-
-	
+	}	
 
 	public void paint(Graphics g) {		
 		super.paint(g);
@@ -100,6 +98,6 @@ public class Game extends JPanel {
 	}
 	
 	public void welcomMessage() {
-		JOptionPane.showMessageDialog(this, "How to play \nJust use LEFT and RIGHT key to controll the racket \nIf the you miss the ball, it's Game over \nClick OK to start game!", "How to?", JOptionPane.YES_NO_CANCEL_OPTION);
+		JOptionPane.showMessageDialog(this, "How to play \nUse LEFT and RIGHT key to controll the racket \nIf the you miss the ball, it's Game over \nClick OK to start game!", "How to?", JOptionPane.YES_NO_CANCEL_OPTION);
 	}
 }

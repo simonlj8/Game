@@ -18,7 +18,7 @@ public class Racket {
 	}
 	
 	public void paint(Graphics2D g) {
-		g.setColor(Color.BLACK);
+		g.setColor(Color.DARK_GRAY);
 		g.fillRect(x, Y, WIDTH, HEIGHT);
 	}
 	
