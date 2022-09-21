@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.util.Scanner;
 
 
 public class Racket {
@@ -17,7 +18,7 @@ public class Racket {
 	}
 	
 	public void paint(Graphics2D g) {
-		g.setColor(Color.red);
+		g.setColor(Color.BLACK);
 		g.fillRect(x, Y, WIDTH, HEIGHT);
 	}
 	
@@ -30,10 +31,10 @@ public class Racket {
 		if(e.getKeyCode() == KeyEvent.VK_LEFT)
 			moveX = -2;
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-			moveX = 2;
-		
+			moveX = 2;	
 	}
-
+		
+	
 	public void KeyReleased(KeyEvent e) {		
 		moveX = 0;
 	}

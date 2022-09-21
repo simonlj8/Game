@@ -4,11 +4,11 @@ public class Ball {
 	
 	private static final int D = 50; //diameter
 	private int x = 0;
-	private int y = 0;
-	
+	private int y = 0;	
 	private int moveX = 1;
 	private int moveY = 1;
 	private Game game;
+	private int score = 0;
 	Color ballColor = new Color(0, 0, 204);
 	
 	public Ball(Game game) {
@@ -26,7 +26,8 @@ public class Ball {
 			game.gameOver();
 			//moveY = -1;
 		if(collision()) {
-			moveY = -2;
+			moveY = -2;	
+			setScore(1);
 		}
 		x += moveX;
 		y += moveY;
@@ -48,5 +49,13 @@ public class Ball {
 	
 	private boolean collision() {
 		return game.racket.getBounds().intersects(getBounds());
+	}
+	
+	public void setScore(int score) {
+		this.score += score;
+	}
+	
+	public int getScore() {
+		return score;
 	}
 }
