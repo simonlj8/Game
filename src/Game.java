@@ -11,6 +11,8 @@ import java.io.IOException;
  * TODO: Make menu so player can choose speed of the ball.
  * 		* Add a Higscore
  * 		* Fix bug: If ball touches the very corner of racket, the points raise with 3-7 ??	
+ * 		* Highscore just write name, not points.
+ * 		* Add a JOptionPane to show highscores
  */
 public class Game extends JPanel {
 	Ball ball = new Ball(this);
@@ -97,10 +99,10 @@ public class Game extends JPanel {
 	public void score() {
 		// JOptionPane.showInputDialog(this, "Your Name?", "Your Name?", JOptionPane.QUESTION_MESSAGE);		
 		// String text = JOptionPane.showInputDialog(this, "Your Name?", "Your Name?", JOptionPane.QUESTION_MESSAGE);
-		String text = JOptionPane.showInputDialog(this, "Your name?");
+		String text = JOptionPane.showInputDialog(this, "Game over!\n" + "You got: " + ball.getScore() + " Points", "Your name for HighScore!");
 		try { 
 			FileWriter writer = new FileWriter("Score.txt", true);			
-			writer.write("\n" + text );         
+			writer.write("\n" + text + " " + ball.getScore() );         
 			writer.close();
 			      
 		}
