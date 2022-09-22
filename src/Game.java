@@ -9,7 +9,8 @@ import java.io.IOException;
 /**
  * @author Simon
  * TODO: Make menu so player can choose speed of the ball.
- * 		 Add a Higscore	
+ * 		* Add a Higscore
+ * 		* Fix bug: If ball touches the very corner of racket, the points raise with 3-7 ??	
  */
 public class Game extends JPanel {
 	Ball ball = new Ball(this);
@@ -18,7 +19,7 @@ public class Game extends JPanel {
 	
 	public Game() {
 		addKeyListener(new KeyListener() {
-			String keyString = "";
+			//String keyString = "";
 			
 			public void keyTyped(KeyEvent e) {
 				// Not used				
@@ -62,7 +63,7 @@ public class Game extends JPanel {
 		frame.setTitle("Simple game made in Java");
 		frame.setResizable(false);
 		frame.setVisible(true);
-		frame.setAlwaysOnTop(true);
+		//frame.setAlwaysOnTop(true);
 		game.welcomMessage();
 		
 		/*ArrayList<Image> imageList = new ArrayList<Image>();
@@ -92,10 +93,31 @@ public class Game extends JPanel {
 		g2d.drawString("Score: " + ball.getScore(), 15, 30);
 	}
 	
-	public void gameOver() {
-		JOptionPane.showMessageDialog(this, "Game over! \nClick Ok to close game", "Game over", JOptionPane.YES_NO_CANCEL_OPTION);
+	
+	public void score() {
+		// JOptionPane.showInputDialog(this, "Your Name?", "Your Name?", JOptionPane.QUESTION_MESSAGE);		
+		// String text = JOptionPane.showInputDialog(this, "Your Name?", "Your Name?", JOptionPane.QUESTION_MESSAGE);
+		String text = JOptionPane.showInputDialog(this, "Your name?");
+		try { 
+			FileWriter writer = new FileWriter("Score.txt", true);			
+			writer.write("\n" + text );         
+			writer.close();
+			      
+		}
+         catch (IOException e) {
+	            e.printStackTrace();
+	        }
 		System.exit(ABORT);
 	}
+	
+	
+	public void gameOver() {	
+         JOptionPane.showMessageDialog(this, "Game over! \nClick Ok to close game", "Game over", JOptionPane.YES_NO_CANCEL_OPTION);
+ 		 System.exit(ABORT);
+		 } 
+		
+	
+	
 	
 	public void welcomMessage() {
 		JOptionPane.showMessageDialog(this, "How to play \nUse LEFT and RIGHT key to controll the racket \nIf the you miss the ball, it's Game over \nClick OK to start game!", "How to?", JOptionPane.YES_NO_CANCEL_OPTION);

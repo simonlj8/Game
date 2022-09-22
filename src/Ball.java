@@ -23,7 +23,8 @@ public class Ball {
 		if(y + moveY < 0)
 			moveY = 1;
 		if(y + moveY > game.getHeight() -D )
-			game.gameOver();
+			game.score();
+			//game.gameOver();
 			//moveY = -1;
 		if(collision()) {
 			moveY = -2;	
