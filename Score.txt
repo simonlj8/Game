@@ -1,3 +1,8 @@
 
 Test 8
 HighScore! 12
+Your name for HighScore! 1
+Simon 4
+null 1
+Klas klättermus 3
+Simon Poäng:  6

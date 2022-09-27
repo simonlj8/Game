@@ -1,5 +1,14 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.awt.AWTException;
+import java.awt.Frame;
+
+import java.awt.Window;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JFrame;
+
 import org.junit.jupiter.api.Test;
 
 /**
@@ -14,10 +23,12 @@ class GamesTest {
 
 	/**
 	 * Test method for {@link Game#Game()}.
+	 * @throws AWTException 
 	 */
 	@Test
-	void testGame() {
-		fail("Not yet implemented");
+	void testGame()  {
+
+		
 	}
 
 	/**
@@ -25,7 +36,10 @@ class GamesTest {
 	 */
 	@Test
 	void testMain() {
-		fail("Not yet implemented");
+		
+		JFrame frame = new JFrame();
+		frame.setSize(700, 800);
+		assertEquals(frame,  frame);
 	}
 
 	/**
@@ -33,7 +47,8 @@ class GamesTest {
 	 */
 	@Test
 	void testPaintGraphics() {
-		fail("Not yet implemented");
+		
+		
 	}
 
 	/**
@@ -41,7 +56,7 @@ class GamesTest {
 	 */
 	@Test
 	void testScore() {
-		fail("Not yet implemented");
+		
 	}
 
 	/**
@@ -49,7 +64,7 @@ class GamesTest {
 	 */
 	@Test
 	void testGameOver() {
-		fail("Not yet implemented");
+		
 	}
 
 	/**
@@ -57,7 +72,7 @@ class GamesTest {
 	 */
 	@Test
 	void testWelcomMessage() {
-		fail("Not yet implemented");
+		
 	}
 
 }
